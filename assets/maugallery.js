@@ -120,14 +120,11 @@
       $(`#${lightboxId}`).modal("toggle");
     },
     prevImage() {
-      let activeImage = null;
-      $("img.gallery-item").each(function() {
-        if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
-        }
-      });
+      let activeImage = $(".lightboxImage");
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
       let imagesCollection = [];
+      
+      // Construire la collection d'images en fonction du tag actif
       if (activeTag === "all") {
         $(".item-column").each(function() {
           if ($(this).children("img").length) {
@@ -145,28 +142,25 @@
           }
         });
       }
-      let index = 0,
-        next = null;
-
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i ;
-        }
-      });
-      next =
-        imagesCollection[index] ||
-        imagesCollection[imagesCollection.length - 1];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      
+      // Trouver l'index de l'image active dans la collection
+      let index = imagesCollection.findIndex(img => img.attr("src") === activeImage.attr("src"));
+      
+      // Calculer l'index de l'image précédente
+      let prevIndex = (index - 1 + imagesCollection.length) % imagesCollection.length;
+      
+      // Récupérer l'image précédente
+      let prev = imagesCollection[prevIndex];
+      
+      // Mettre à jour l'attribut src de .lightboxImage avec la source de l'image précédente
+      activeImage.attr("src", prev.attr("src"));
     },
     nextImage() {
-      let activeImage = null;
-      $("img.gallery-item").each(function() {
-        if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
-        }
-      });
+      let activeImage = $(".lightboxImage");
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
       let imagesCollection = [];
+      
+      // Construire la collection d'images en fonction du tag actif
       if (activeTag === "all") {
         $(".item-column").each(function() {
           if ($(this).children("img").length) {
@@ -184,16 +178,18 @@
           }
         });
       }
-      let index = 0,
-        next = null;
-
-      $(imagesCollection).each(function(i) {
-        if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
-        }
-      });
-      next = imagesCollection[index] || imagesCollection[0];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      
+      // Trouver l'index de l'image active dans la collection
+      let index = imagesCollection.findIndex(img => img.attr("src") === activeImage.attr("src"));
+      
+      // Calculer l'index de l'image suivante
+      let nextIndex = (index + 1) % imagesCollection.length;
+      
+      // Récupérer l'image suivante
+      let next = imagesCollection[nextIndex];
+      
+      // Mettre à jour l'attribut src de .lightboxImage avec la source de l'image suivante
+      activeImage.attr("src", next.attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
@@ -240,7 +236,7 @@
         return;
       }
       $(".active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag");
+      $(this).addClass("active active-tag");
 
       var tag = $(this).data("images-toggle");
 
