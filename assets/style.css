@@ -43,6 +43,11 @@ body {
 	height: 20px;
 }
 
+.carousel-item img {
+	width: 1920px;
+	height: 888px;
+}
+
 #about {
 	display: flex;
 	background-color: #F6D2B8;
