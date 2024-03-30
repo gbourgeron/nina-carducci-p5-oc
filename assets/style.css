@@ -347,6 +347,10 @@ input[type="submit"] {
 		padding-block: 1em;
 		text-align: center;
 	}
+	.carousel-item img {
+		width: 634px;
+		height: 293px;
+	}
 	.picture.left::before, .picture.right::before {
 		height: 150px;
 	}
