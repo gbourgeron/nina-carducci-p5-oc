@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta 
 		name="description"
-		content="Photographe passionnée sur Bordeaux, je réalise vos shootings photos, vos retouches et vos albums.">
+		content="Je réalise vos shootings photos, vos retouches et vos albums. Déplacements sur Bordeaux et Paris">
 	<meta name="keywords" content="photographe, shooting, retouche, album, photos">
 	<meta name="robots" content="index, follow">
 	<meta name="language" content="fr-FR">
@@ -42,7 +42,26 @@
 	<script src="./assets/maugallery.js" defer></script>
 	<script src="./assets/scripts.js" defer></script>
 	<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-	<title>Nina Carducci, photographe à Bordeaux</title>
+	<title>Nina Carducci, photographe à Bordeaux et Paris</title>
+
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Bordeaux",
+			"addressCountry": "France",
+			"postalCode": "33200",
+			"streetAddress": "68 Avenue Alsace-Lorraine"
+		  },
+		  "jobTitle": "Photographe",
+		  "name": "Nina Carducci",
+		  "telephone": "+33556677889",
+		  "url": "https://gbourgeron.github.io/nina-carducci-p5-oc/"
+		}
+	</script>
+
 </head>
 <body>
 <header class="top-header">
@@ -203,21 +222,6 @@
 		<div class="picture right">
 			<img src="./assets/images/camera.webp" alt="Une appareil photo illuminé par une lumière tamisée rougeâtre" loading="lazy">
 		</div>
-	</div>
-	<div itemscope itemtype="https://schema.org/Person">
-		<address class="container">
-			<div>
-				<span itemprop="name">Nina Carducci</span><br>
-				<span itemprop="telephone"><a href="tel:+33556677889">05 56 67 78 89</a></span><br>
-				<span itemprop="hoursAvailable">Lundi au vendredi de 10h à 19h</span>
-			</div>
-			<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-				<span itemprop="streetAddress">68 Avenue Alsace-Lorraine</span><br>
-				<span itemprop="postalCode">33200</span>
-				<span itemprop="addressLocality">Bordeaux</span><br>
-				<span itemprop="addressCountry">France</span><br>
-			</div>
-		</address>
 	</div>
 </footer>
 <script 
